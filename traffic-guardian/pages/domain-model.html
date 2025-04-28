@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Model - Traffic Guardian</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Traffic Guardian</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="project.html">Project</a></li>
+                    <li><a href="technologies.html">Technologies</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="domain-model.html" class="active">Domain Model</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Proposed Domain Model</h1>
+        </div>
+    </section>
+
+    <section class="domain-model">
+        <div class="container">
+            <div class="model-image">
+                <img src="../images/domain-model.png" alt="Traffic Guardian Domain Model" class="full-width-img">
+            </div>
+            
+            <div class="model-explanation">
+                <h2>Understanding the Domain Model</h2>
+                <p>The domain model represents the key entities in our Traffic Guardian system and their relationships. This model guides our development and ensures that our implementation aligns with the real-world domain of traffic monitoring and incident response.</p>
+                
+                <div class="entity-details">
+                    <h3>Core Entities</h3>
+                    
+                    <div class="entity">
+                        <h4>TrafficCamera</h4>
+                        <p>Represents physical cameras deployed across the road network. Each camera has a unique identifier, geolocation coordinates, operational status, and a URL for accessing its video stream.</p>
+                        <ul>
+                            <li><strong>cameraId:</strong> String</li>
+                            <li><strong>location:</strong> GeoCoordinates</li>
+                            <li><strong>status:</strong> Status</li>
+                            <li><strong>streamUrl:</strong> URL</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="entity">
+                        <h4>VideoStream</h4>
+                        <p>Represents the live video feed from a traffic camera. Each stream has metadata about its source, quality, and timing information.</p>
+                        <ul>
+                            <li><strong>streamId:</strong> String</li>
+                            <li><strong>sourceCamera:</strong> Camera</li>
+                            <li><strong>startTime:</strong> DateTime</li>
+                            <li><strong>quality:</strong> Quality</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="entity">
+                        <h4>IncidentDetection</h4>
+                        <p>Represents the system's detection of a potential incident. Contains information about confidence level, timestamp, and the frame data that triggered the detection.</p>
+                        <ul>
+                            <li><strong>detectionId:</strong> String</li>
+                            <li><strong>timestamp:</strong> DateTime</li>
+                            <li><strong>confidence:</strong> float</li>
+                            <li><strong>frameData:</strong> Image</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="entity">
+                        <h4>TrafficIncident</h4>
+                        <p>Represents a confirmed traffic incident. Contains detailed information about the type, location, severity, and current status of the incident.</p>
+                        <ul>
+                            <li><strong>incidentId:</strong> String</li>
+                            <li><strong>type:</strong> IncidentType</li>
+                            <li><strong>location:</strong> GeoCoordinates</li>
+                            <li><strong>severity:</strong> Severity</li>
+                            <li><strong>status:</strong> Status</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="entity">
+                        <h4>Alert</h4>
+                        <p>Represents a notification sent to operators or emergency services about an incident. Contains information about priority, timestamp, and current status.</p>
+                        <ul>
+                            <li><strong>alertId:</strong> String</li>
+                            <li><strong>incident:</strong> Incident</li>
+                            <li><strong>timestamp:</strong> DateTime</li>
+                            <li><strong>status:</strong> AlertStatus</li>
+                            <li><strong>priority:</strong> Priority</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="entity">
+                        <h4>Operator</h4>
+                        <p>Represents a traffic control center operator who uses the system. Contains information about their role, status, and contact details.</p>
+                        <ul>
+                            <li><strong>operatorId:</strong> String</li>
+                            <li><strong>name:</strong> String</li>
+                            <li><strong>role:</strong> Role</li>
+                            <li><strong>status:</strong> Status</li>
+                            <li><strong>contactInfo:</strong> Contact</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="entity">
+                        <h4>IncidentArchive</h4>
+                        <p>Represents the historical record of a traffic incident. Contains media files, metadata, and links to the original incident record.</p>
+                        <ul>
+                            <li><strong>archiveId:</strong> String</li>
+                            <li><strong>incident:</strong> Incident</li>
+                            <li><strong>mediaFiles:</strong> List&lt;Media&gt;</li>
+                            <li><strong>metadata:</strong> Metadata</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="relationship-details">
+                    <h3>Key Relationships</h3>
+                    
+                    <div class="relationship">
+                        <h4>TrafficCamera → VideoStream</h4>
+                        <p>A traffic camera provides one or more video streams. This relationship is essential for tracing detected incidents back to their source cameras.</p>
+                    </div>
+                    
+                    <div class="relationship">
+                        <h4>VideoStream → IncidentDetection</h4>
+                        <p>Video streams are analyzed by our AI system to produce incident detections. Multiple detections may occur from a single stream.</p>
+                    </div>
+                    
+                    <div class="relationship">
+                        <h4>IncidentDetection → TrafficIncident</h4>
+                        <p>An incident detection, once confirmed (either automatically or by an operator), becomes a traffic incident in the system.</p>
+                    </div>
+                    
+                    <div class="relationship">
+                        <h4>TrafficIncident → Alert</h4>
+                        <p>A traffic incident triggers one or more alerts to notify operators and emergency services.</p>
+                    </div>
+                    
+                    <div class="relationship">
+                        <h4>Alert → Operator</h4>
+                        <p>Alerts notify operators who can then take appropriate action based on the incident information.</p>
+                    </div>
+                    
+                    <div class="relationship">
+                        <h4>TrafficIncident → IncidentArchive</h4>
+                        <p>Traffic incidents are stored in the incident archive for historical analysis and reporting.</p>
+                    </div>
+                    
+                    <div class="relationship">
+                        <h4>Operator → IncidentArchive</h4>
+                        <p>Operators can access the incident archive to review historical incidents and generate reports.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Quantum Quenchers | COS301 Capstone Project | University of Pretoria</p>
+            <p>Contact: <a href="mailto:quantumquenchers@gmail.com">quantumquenchers@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
