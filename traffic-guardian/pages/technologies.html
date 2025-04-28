@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technologies - Traffic Guardian</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Traffic Guardian</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="project.html">Project</a></li>
+                    <li><a href="technologies.html" class="active">Technologies</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="domain-model.html">Domain Model</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Proposed Technologies</h1>
+        </div>
+    </section>
+
+    <section class="tech-overview">
+        <div class="container">
+            <p>Our technology stack is carefully selected to balance performance needs with the constraints of the AWS Free Tier, ensuring a scalable, reliable, and cost-effective solution.</p>
+            
+            <div class="tech-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Proposed Tool/Service</th>
+                            <th>Justification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cloud Platform</td>
+                            <td>AWS (Free Tier)</td>
+                            <td>Scalable and secure cloud infrastructure that aligns with budgetary constraints.</td>
+                        </tr>
+                        <tr>
+                            <td>Video Ingestion</td>
+                            <td>*Amazon Kinesis Video Streams / OpenCV</td>
+                            <td>Kinesis for seamless video stream ingestion and OpenCV for local processing.</td>
+                        </tr>
+                        <tr>
+                            <td>Computer Vision</td>
+                            <td>TensorFlow, OpenCV</td>
+                            <td>TensorFlow for deep learning-based incident classification and OpenCV for frame processing.</td>
+                        </tr>
+                        <tr>
+                            <td>Backend API</td>
+                            <td>Flask (Python) / Node.js</td>
+                            <td>Lightweight RESTful API for system communication and integration with the frontend.</td>
+                        </tr>
+                        <tr>
+                            <td>Frontend Dashboard</td>
+                            <td>React.js / D3.js</td>
+                            <td>An interactive, real-time web dashboard for traffic monitoring and reporting.</td>
+                        </tr>
+                        <tr>
+                            <td>Database & Storage</td>
+                            <td>AWS S3, DynamoDB</td>
+                            <td>S3 for media storage and DynamoDB for metadata and incident record storage.</td>
+                        </tr>
+                        <tr>
+                            <td>Notification System</td>
+                            <td>AWS SNS, WebSockets</td>
+                            <td>Real-time notifications and an alert system to notify operators and field personnel.</td>
+                        </tr>
+                        <tr>
+                            <td>Security</td>
+                            <td>HTTPS, AWS IAM, AES Encryption</td>
+                            <td>Encryption for data at rest and in transit, IAM for user access control, and AES encryption for sensitive data.</td>
+                        </tr>
+                        <tr>
+                            <td>Incident Archiving</td>
+                            <td>AWS S3 / Amazon RDS</td>
+                            <td>S3 for raw data and RDS for structured archival with search capabilities.</td>
+                        </tr>
+                        <tr>
+                            <td>CI/CD Pipeline</td>
+                            <td>GitHub Actions</td>
+                            <td>Automate testing, building, and deployment processes.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-details">
+        <div class="container">
+            <h2>Detailed Technology Breakdown</h2>
+            
+            <div class="tech-card">
+                <h3>Cloud Platform – AWS (Free Tier)</h3>
+                <p>As final-year Computer Science majors, we are deeply familiar with cloud computing paradigms and cloud-native architecture. AWS Free Tier provides us with an industry-grade infrastructure that supports scalability, reliability, and high availability, while keeping us within budget. Leveraging AWS enables us to deploy and test services in a production-like environment, gain practical DevOps experience, and ensure that our solution is easily extensible for future growth.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>Video Ingestion – OpenCV / Amazon Kinesis Video Streams</h3>
+                <p>We will use OpenCV for initial frame processing, which is open source and completely free. Amazon Kinesis Video Streams, while powerful and natively integrated into AWS, is not included in the AWS Free Tier and may incur charges based on data throughput and retention. Therefore, we will use it selectively, primarily during demos or load testing, and otherwise rely on local simulation using OpenCV for development and testing phases.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>Computer Vision – TensorFlow, OpenCV</h3>
+                <p>To detect and classify traffic incidents, we will utilise TensorFlow for training and running deep learning models and OpenCV for image preprocessing and feature extraction. Our coursework and project experience have given us a solid foundation in AI and machine learning, and this component allows us to apply those skills in a real-world, high-impact context. TensorFlow's extensive library support and community ecosystem make it ideal for iterating quickly on model performance.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>Backend API – Flask (Python) / Node.js</h3>
+                <p>The backend will be implemented using Flask, a lightweight Python web framework, or Node.js, depending on performance needs and integration simplicity. These technologies allow us to expose RESTful endpoints for frontend consumption and external integrations, while applying what we've learned about web development, modular programming, and secure API design in a production-focused setting.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>Frontend Dashboard – React.js / D3.js</h3>
+                <p>For the dashboard, we will develop a responsive and interactive web interface using React.js, paired with D3.js for advanced data visualisation. This combination allows traffic control operators to monitor live feeds, receive alerts, and view analytical reports in an intuitive manner. We've worked extensively with frontend technologies during our academic projects and are confident in our ability to build highly usable and aesthetically pleasing UIs.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>Database & Storage – AWS S3, DynamoDB</h3>
+                <p>We'll use AWS S3 to store video clips and images from incidents, while DynamoDB will serve as our primary database for incident metadata. This NoSQL solution allows for low-latency querying and scalability without the overhead of managing traditional relational databases—an ideal fit for our anticipated usage pattern. These choices align with the cloud-native architecture principles we've studied.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>Notification System – AWS SNS, WebSockets</h3>
+                <p>To ensure rapid communication with traffic management teams, we'll integrate AWS SNS for alert broadcasting and WebSockets for real-time updates in the web dashboard. These tools will help us deliver near-instant feedback when an incident is detected, enhancing situational awareness. Real-time systems are a key part of modern distributed applications, and we're excited to implement these concepts in practice.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>Security – HTTPS, AWS IAM, AES Encryption</h3>
+                <p>Security is non-negotiable, especially when dealing with sensitive infrastructure and possibly identifiable vehicle data. We'll enforce HTTPS for all communications, use AES encryption for stored data, and rely on AWS IAM for managing access control across our services. This ensures compliance with the POPI Act and best practices, while giving us a real-world understanding of secure system design.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>Incident Archiving – AWS S3 / Amazon RDS</h3>
+                <p>To maintain a searchable, long-term archive of detected incidents, we'll utilise AWS S3 for storing raw data and Amazon RDS for structured querying and analytics. This dual-storage strategy balances performance with cost-efficiency and enables us to deliver meaningful insights through the dashboard and reporting tools. Working with both structured and unstructured data is a core competency we've honed through our coursework.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>CI/CD Pipeline – GitHub Actions</h3>
+                <p>We will adopt GitHub Actions to automate our testing, build, and deployment workflows, reinforcing a DevOps-oriented development culture. This approach enhances our development efficiency, minimises human error, and ensures that new features or fixes are delivered to production swiftly. As students preparing to enter the industry, this experience is invaluable in applying agile methodologies and continuous delivery strategies.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Quantum Quenchers | COS301 Capstone Project | University of Pretoria</p>
+            <p>Contact: <a href="mailto:quantumquenchers@gmail.com">quantumquenchers@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
