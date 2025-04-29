@@ -11,11 +11,11 @@ Traffic Guardian is a real-time traffic incident detection and reporting system 
 We are a team of final-year Computer Science students at the University of Pretoria implementing this project as part of our COS301 Capstone Project.
 
 ### Team Members:
-- Nicholas Dobson (u23671964)
-- Shaylin Govender (u20498952)
-- Lonwabo Kwitshana (u22516949)
-- Mpho Tsotetsi (u22668323)
-- Aryan Mohanlall (u23565536)
+- Nicholas Dobson
+- Shaylin Govender
+- Lonwabo Kwitshana
+- Mpho Tsotetsi
+- Aryan Mohanlall
 
 ## Technologies
 
